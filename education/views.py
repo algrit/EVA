@@ -1,4 +1,12 @@
 from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from .models import Question
+from .serializers import QuestionSerializer
+
+
+class QuestionListView(ModelViewSet):
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
 
 
 def main_page(request):
