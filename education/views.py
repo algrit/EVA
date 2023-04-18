@@ -11,3 +11,6 @@ class QuestionListView(ModelViewSet):
 
 def main_page(request):
     return render(request, 'education/main_page.html')
+
+def courses(request):
+    return render(request, 'education/courses.html')

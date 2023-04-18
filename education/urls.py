@@ -9,7 +9,8 @@ router.register('api/questions', views.QuestionListView)
 
 
 urlpatterns = [
-    path('my', views.main_page)
+    path('my', views.main_page),
+    path('courses', views.courses)
 ]
 
 
