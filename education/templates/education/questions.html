@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block title %} EVA QUESTIONS {% endblock %}
+
+
+
+{% block content %}
+
+
+{% verbatim %}
+<div class="container" id="id_questions">
+    all questions:<br>
+    <div class="btn btn-success btn-lg" v-for="question in questions">
+        Title:  '{{ question.title }}'<br>
+        Text:   '{{ question.question_text }}
+    </div>
+</div>
+{% endverbatim %}
+
+
+<script src="/static/questions.js"></script>
+
+{% endblock %}

@@ -6,11 +6,15 @@ from . import views
 
 router = SimpleRouter()
 router.register('api/questions', views.QuestionListView)
+router.register('api/tests', views.TestListView)
+router.register('api/courses', views.CourseListView)
 
 
 urlpatterns = [
     path('my', views.main_page),
-    path('courses', views.courses)
+    path('question', views.question),
+    path('test', views.test),
+    path('course', views.course)
 ]
 
 

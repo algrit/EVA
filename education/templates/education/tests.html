@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title %} EVA TESTS {% endblock %}
+
+
+
+{% block content %}
+
+
+{% verbatim %}
+<div class="container" id="id_tests">
+    all tests:<br>
+    <div class="btn btn-success btn-lg" v-for="test in tests">
+        Title:  '{{ test.title }}'
+    </div>
+</div>
+{% endverbatim %}
+
+
+<script src="/static/tests.js"></script>
+
+{% endblock %}
