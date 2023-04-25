@@ -18,4 +18,5 @@ class TestSerializer(ModelSerializer):
 class CourseSerializer(ModelSerializer):
     class Meta:
         model = Course
-        fields = ['title']
+        # fields = ['title']
+        fields = '__all__'
