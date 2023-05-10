@@ -1,8 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'education/base.html' %}
 
 {% block title %} Main Page {% endblock %}
 
 
 {% block content %}
-<h2>EVA GREETS YOU!</h2>
+<h1> EVA GREETS YOU!</h1> <br>
+<h2>Your courses:</h2> <br>
+<div class="form-style">
+    {% for course in courses %}
+    <form>
+        <a href="{{course.get_url}}" >{{ course.title }}</a>
+    </form>
+    <br>
+    {% endfor %}
+</div>
 {% endblock %}

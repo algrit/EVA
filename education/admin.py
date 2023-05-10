@@ -22,8 +22,10 @@ class TestAdmin(admin.ModelAdmin):
 
 
 @admin.register(Course)
-class TestAdmin(admin.ModelAdmin):
+class CourseAdmin(admin.ModelAdmin):
     list_display = ['title']
     filter_horizontal = ['tests']
+    prepopulated_fields = {'slug': ('title',)}
     ordering = ['id']
+    # readonly_fields = ['slug']
     list_per_page = 10

@@ -122,11 +122,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'EVA/'
 # STATICFILES_DIRS = [BASE_DIR / 'EVA/static']
 STATICFILES_DIRS = [
-    # os.path.join(BASE_DIR, 'EVA/static'),
-    os.path.join(BASE_DIR, 'education/static/js'),
+    os.path.join(BASE_DIR, 'EVA/static'),
+    os.path.join(BASE_DIR, 'education/static'),
 ]
 
 # Default primary key field type

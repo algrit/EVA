@@ -1,35 +1,27 @@
 from django.shortcuts import render
-from rest_framework.viewsets import ModelViewSet
-from .models import Question, Test, Course
-from .serializers import QuestionSerializer, CourseSerializer, TestSerializer
+from django.views.generic import ListView, DetailView
 
-
-class QuestionListView(ModelViewSet):
-    queryset = Question.objects.all()
-    serializer_class = QuestionSerializer
-
-
-class TestListView(ModelViewSet):
-    queryset = Test.objects.all()
-    serializer_class = TestSerializer
-
-
-class CourseListView(ModelViewSet):
-    queryset = Course.objects.all()
-    serializer_class = CourseSerializer
+from education.models import Course, Test
 
 
 def main_page(request):
-    return render(request, 'education/main_page.html')
+    return render(request, 'education/main_page.html', {'courses': Course.objects.all()})
+
+class TestsListView(ListView):
+    model = Test
+    template_name = 'education/tests_list.html'
+
+class TestDetailView(DetailView):
+    model = Test
+    template_name = 'education/test_detail.html'
 
 
-def question(request):
-    return render(request, 'education/questions.html')
 
 
-def test(request):
-    return render(request, 'education/tests.html')
+class CoursesListView(ListView):
+    model = Course
+    template_name = 'education/courses_list.html'
 
-
-def course(request):
-    return render(request, 'education/courses.html')
+class CourseDetailView(DetailView):
+    model = Course
+    template_name = 'education/course_detail.html'
