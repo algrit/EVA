@@ -44,7 +44,14 @@ class Course(models.Model):
 
 
 
+
 class CourseSubscription(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    sub_time = models.DateTimeField(auto_now_add=True)
+    unsub_time = models.DateTimeField(null=True, default=None, editable=False)
+    active = models.BooleanField(default=True, editable=False)
+
+    def __str__(self):
+        return f'{self.user} - {self.course}'
 

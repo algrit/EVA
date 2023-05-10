@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from education.models import Question, Test, Course
+from education.models import Question, Test, Course, CourseSubscription
 
 
 # Register your models here.
@@ -29,3 +29,8 @@ class CourseAdmin(admin.ModelAdmin):
     ordering = ['id']
     # readonly_fields = ['slug']
     list_per_page = 10
+
+
+@admin.register(CourseSubscription)
+class CourseSubscriptionAdmin(admin.ModelAdmin):
+    list_display = ['id', 'user', 'course', 'sub_time', 'unsub_time', 'active']
