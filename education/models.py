@@ -13,7 +13,7 @@ class Question(models.Model):
     comment = models.TextField(default='Your answer is wrong.', blank=True)
 
     def __str__(self):
-        return self.title
+        return f'{self.title} ({self.id})'
 
 
 class Test(models.Model):
@@ -21,7 +21,7 @@ class Test(models.Model):
     questions = models.ManyToManyField(Question)
 
     def __str__(self):
-        return self.title
+        return f'{self.title} ({self.id})'
 
     def get_url(self):
         return reverse('test_details', args=(self.id, ))
@@ -33,7 +33,7 @@ class Course(models.Model):
     slug = models.SlugField(default='')
 
     def __str__(self):
-        return self.title
+        return f'{self.title} ({self.id})'
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
@@ -53,5 +53,5 @@ class CourseSubscription(models.Model):
     active = models.BooleanField(default=True, editable=False)
 
     def __str__(self):
-        return f'{self.user} - {self.course}'
+        return f'{self.user}({self.user.id}) - {self.course}({self.course.id})'
 
